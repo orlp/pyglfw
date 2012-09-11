@@ -162,7 +162,3 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-
-glfw/glfw.dll
-glfw/libglfw.so
-glfw/libglfw.dylib
