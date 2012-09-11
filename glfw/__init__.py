@@ -849,7 +849,7 @@ def GetJoystickParam(joy, param):
     if not param in (PRESENT, AXES, BUTTONS):
         raise ValueError("param must be one of glfw.PRESENT, glfw.AXES or glfw.BUTTONS")
     
-    return _glfwdll.glfwGetJoystickparam(joy, param)
+    return _glfwdll.glfwGetJoystickParam(joy, param)
     
 
 def GetJoystickPos(joy):
@@ -859,7 +859,7 @@ def GetJoystickPos(joy):
     if not joy in set(range(16)):
         raise ValueError("joy must be one of the glfw.JOYSTICK_n constants")
     
-    max_axes = _glfwdll.glfwGetJoystickparam(joy, AXES)
+    max_axes = _glfwdll.glfwGetJoystickParam(joy, AXES)
     pos = (_ctypes.c_float * max_axes)()
     num_axes = _glfwdll.glfwGetJoystickPos(joy, pos, max_axes)
     
@@ -873,7 +873,7 @@ def GetJoystickButtons(joy):
     if not joy in set(range(16)):
         raise ValueError("joy must be one of the glfw.JOYSTICK_n constants")
     
-    max_buttons = _glfwdll.GetJoystickParam(joy, BUTTON)
+    max_buttons = _glfwdll.glfwGetJoystickParam(joy, BUTTONS)
     buttons = (_ctypes.c_ubyte * max_buttons)()
     num_buttons = _glfwdll.glfwGetJoystickButtons(joy, buttons, max_buttons)
     
