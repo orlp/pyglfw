@@ -524,6 +524,21 @@ def GetVersion():
     _glfwdll.glfwGetVersion(_ctypes.byref(major), _ctypes.byref(minor), _ctypes.byref(rev))
     
     return (major.value, minor.value, rev.value)
+
+def OpenWindowHint(target, hint):
+    if not _is_int(target) or not _is_int(hint):
+        raise TypeError("target and hint must be numbers")
+
+    if target not in (
+        REFRESH_RATE,
+        ACCUM_RED_BITS, ACCUM_GREEN_BITS, ACCUM_BLUE_BITS, ACCUM_ALPHA_BITS,
+        AUX_BUFFERS, STEREO, WINDOW_NO_RESIZE, FSAA_SAMPLES,
+        OPENGL_VERSION_MAJOR, OPENGL_VERSION_MINOR, OPENGL_FORWARD_COMPAT,
+        OPENGL_DEBUG_CONTEXT, OPENGL_PROFILE
+        ):
+        raise ValueError("invalid target parameter")
+
+    return _glfwdll.glfwOpenWindowHint(target, hint)
     
 
 def OpenWindow(width, height, redbits, greenbits, bluebits, alphabits, depthbits, stencilbits, mode):
