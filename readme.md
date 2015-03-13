@@ -69,16 +69,3 @@ directory before installing.
 pyglfw comes with the GLFW documentation. They can be found in the folder docs.
 For the GLFW source code (needed to build a GLFW shared library) download a copy
 from http://glfw.org/.
-
-License
--------
-Copyright 2012 Orson Peters. All rights reserved.
-
-Redistribution of this work, with or without modification, is permitted if
-Orson Peters is attributed as the original author or licensor of
-this work, but not in any way that suggests that Orson Peters endorses
-you or your use of the work.
-
-This work is provided by Orson Peters "as is" and any express or implied
-warranties are disclaimed. Orson Peters is not liable for any damage
-arising in any way out of the use of this work.
